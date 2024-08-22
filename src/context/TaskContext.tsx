@@ -43,12 +43,13 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const editTask = async (updatedTask: Task) => {
-    const response = await fetch(`${API_URL}/${updatedTask.id}`, {
+    const { id: taskId, ...taskToUpdate } = updatedTask;
+    const response = await fetch(`${API_URL}/${taskId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedTask),
+      body: JSON.stringify(taskToUpdate),
     });
     const updatedTaskResponse = await response.json();
     setTasks(

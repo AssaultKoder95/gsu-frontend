@@ -13,7 +13,7 @@ export const TaskContext = createContext<TaskContextProps | undefined>(
   undefined,
 );
 
-const API_URL = `${process.env.API_URL}/api/v1/tasks`;
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/tasks`;
 
 export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   children,

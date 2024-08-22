@@ -1,21 +1,23 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: Arial, sans-serif;
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
-  nav a {
-    margin-right: 1rem;
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
   }
 
-  @media (max-width: 768px) {
-    nav a {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;

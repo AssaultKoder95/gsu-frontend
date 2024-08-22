@@ -3,8 +3,8 @@ import { Task } from "../types/Task";
 
 interface TaskContextProps {
   tasks: Task[];
-  addTask: (task: Task) => void;
-  editTask: (task: Task) => void;
+  addTask: (task: Partial<Task>) => void;
+  editTask: (task: Partial<Task>) => void;
   deleteTask: (id: string) => void;
   getTaskById: (id: string) => Task | undefined;
 }
@@ -30,7 +30,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     setTasks(data);
   };
 
-  const addTask = async (task: Task) => {
+  const addTask = async (task: Partial<Task>) => {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -42,7 +42,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     setTasks([newTask, ...tasks]);
   };
 
-  const editTask = async (updatedTask: Task) => {
+  const editTask = async (updatedTask: Partial<Task>) => {
     const { id: taskId, ...taskToUpdate } = updatedTask;
     const response = await fetch(`${API_URL}/${taskId}`, {
       method: "PUT",

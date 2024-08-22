@@ -30,8 +30,6 @@ const TaskList: React.FC<TaskListProps> = ({
     );
   }
 
-  console.log(searchQuery, statusFilter, tasks);
-
   return (
     <ListContainer>
       {filteredTasks.length > 0 ? (

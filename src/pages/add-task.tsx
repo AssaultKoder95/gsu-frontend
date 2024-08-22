@@ -15,7 +15,7 @@ const CreateTask: React.FC = () => {
   const { addTask } = taskContext;
   const router = useRouter();
 
-  const handleSubmit = (task: Task) => {
+  const handleSubmit = (task: Partial<Task>) => {
     addTask(task);
     router.push("/");
   };

@@ -19,7 +19,7 @@ const EditTask: React.FC = () => {
 
   const task = getTaskById(id as string);
 
-  const handleSubmit = (updatedTask: Task) => {
+  const handleSubmit = (updatedTask: Partial<Task>) => {
     editTask(updatedTask);
     router.push("/");
   };

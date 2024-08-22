@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Task } from "../types/Task";
 
 interface TaskFormProps {
-  onSubmit: (task: Task) => void;
+  onSubmit: (task: Partial<Task>) => void;
   initialTask?: Task;
 }
 
@@ -13,7 +13,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialTask }) => {
     initialTask?.description || "",
   );
   const [status, setStatus] = useState(
-    (initialTask?.status as Task["status"]) || "pending",
+    (initialTask?.status as Task["status"]) || "todo",
   );
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialTask }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit({
-      id: initialTask?.id || `${Date.now()}`,
+      id: initialTask?.id,
       title,
       description,
       status,
